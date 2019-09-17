@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head>
+<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta http-equiv="X-UA-Conpatible" content="IE=edge"/>
+	
+	<h:outputStylesheet library="css" name="bootstrap.css"></h:outputStylesheet>
+	<h:outputStylesheet library="css" name="jquery.dataTables.min.css"></h:outputStylesheet>
+	<h:outputScript library="js" name="bootstrap.min.js" target="body"/>
+	<h:outputScript library="js" name="jquery-3.4.1.min.js" />
+	<h:outputScript library="js" name="jquery.dataTables.min.js" />
+
+</h:head> 
+<h:body> 
+
+<h:outputLabel value="Lista Usuarios" />
+<h:form>
+
+	<h:commandButton class="btn btn-primary"  action="#{usuarioBean.nuevo()}" value="Crear Usuario" />
+<br />
+<br /><br />
+	<h:dataTable class="table table-bordered table-hover text-center" style="width:100%" border="1" value="#{usuarioBean.ObtenerUsuarios()}" var="usuario">
+
+		<h:column>
+		<f:facet name="header">ID</f:facet>
+		<h:outputText value="#{usuario.id}" />
+		</h:column>
+
+		<h:column>
+		<f:facet name="header">Correo</f:facet>
+		<h:outputText value="#{usuario.correo}" />
+		</h:column>
+		
+		<h:column>
+		<f:facet name="header">Pass</f:facet>
+		<h:outputText value="#{usuario.password}" />
+		</h:column>
+		
+		<h:column>
+			       <f:facet name="header">
+			           <h:outputLabel value="Editar" />
+			        </f:facet>   
+				     <h:commandButton  class="btn btn-primary"  action="#{usuarioBean.editar(usuario.id)}" value="Editar"/>
+	    </h:column>
+	    
+	    <h:column>
+			       <f:facet name="header">
+			           <h:outputLabel value="Eliminar" />
+			        </f:facet>   
+				     <h:commandButton class="btn btn-danger"  action="#{usuarioBean.eliminar(usuario.id)}" value="Eliminar"/>
+	    </h:column>
+	    
+	    
+
+	</h:dataTable>
+</h:form>
+</h:body> 
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head>
+
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta http-equiv="X-UA-Conpatible" content="IE=edge"/>
+	
+	<h:outputStylesheet library="css" name="bootstrap.css"></h:outputStylesheet>
+	<h:outputStylesheet library="css" name="jquery.dataTables.min.css"></h:outputStylesheet>
+	<h:outputScript library="js" name="bootstrap.min.js" target="body"/>
+	<h:outputScript library="js" name="jquery-3.4.1.min.js" />
+	<h:outputScript library="js" name="jquery.dataTables.min.js" />
+</h:head> 
+<h:body> 
+	<h1>nuevo usuario</h1>
+	
+	<h:form>
+	<h:panelGrid columns="2" cellspacing="20" border="1">
+		<h:outputText value="Correo" />
+		
+		<h:inputText class="form-control" value="#{usuario.correo}" />
+		
+		<h:outputText value="Password" />
+		
+		<h:inputText class="form-control" value="#{usuario.password}" />
+	
+		<f:facet name="footer">
+		<h:commandButton class="btn btn-primary col-md-12" action="#{usuarioBean.guardar(usuario)}" value="Guardar" />
+		</f:facet>
+	</h:panelGrid>
+</h:form>	
+</h:body> 
+</html>
